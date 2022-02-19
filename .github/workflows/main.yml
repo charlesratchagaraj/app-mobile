@@ -1,4 +1,4 @@
-name: Sample workflow for App Center actions
+name: Sample workflow for App Center action
 on: [push, pull_request]
 jobs:
   build:
