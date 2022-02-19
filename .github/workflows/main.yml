@@ -12,12 +12,3 @@ jobs:
         with:
             lane: 'deployAppCenter'
             skip-tracking: true
-      - name: upload artefact to App Center
-        uses:  charlesratchagaraj/app-mobile@v1 
-        with:
-          appName:  charlesratchagaraj/sampleapp 
-          token: ${{secrets.APP_CENTER_TOKEN}}
-          group: Testers
-          file: app/build/outputs/apk/release/app-release-unsigned.apk
-          notifyTesters: true
-          debug: false
