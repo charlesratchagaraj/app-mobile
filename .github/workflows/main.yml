@@ -7,5 +7,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: maierj/fastlane-action@v2.0.1
         with:
-            lane: 'deployAppCenter'
+            lane: deployAppCenter
             skip-tracking: true
