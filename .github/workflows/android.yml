@@ -1,0 +1,23 @@
+name: Sample workflow for App Center action
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: set up JDK 1.8
+        with:
+            java-version: 1.8
+      - uses: maierj/fastlane-action@v2.0.1
+        with:
+            lane: 'RC_snapshot'
+            skip-tracking: true
+      - name: upload artefact to App Center
+        uses:  charlesratchagaraj/app-mobile@v1 
+        with:
+          appName:  charlesratchagaraj/sampleapp 
+          token: ${{secrets.APP_CENTER_TOKEN}}
+          group: Testers
+          file: app/build/outputs/apk/release/app-release-unsigned.apk
+          notifyTesters: true
+          debug: false
